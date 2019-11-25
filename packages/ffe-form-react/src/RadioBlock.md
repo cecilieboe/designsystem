@@ -35,3 +35,45 @@ initialState = { selected: 'you' };
     )}
 </RadioButtonInputGroup>;
 ```
+
+Variant _dark_ for interne løsninger med mørk bakgrunn.
+
+```js { "props": { "className": "sb1ds-example-dark" } }
+const { RadioButtonInputGroup } = require('.');
+initialState = { selected: 'domesticPartner' };
+<RadioButtonInputGroup
+    label="Sivilstatus"
+    name="relationshipstatus"
+    onChange={e => setState({ selected: e.target.value })}
+    selectedValue={state.selected}
+    dark={true}
+>
+    {inputProps => (
+        <React.Fragment>
+            <RadioBlock
+                {...inputProps}
+                label="Samboer"
+                value="domesticPartner"
+                dark={true}
+            />
+            <RadioBlock
+                {...inputProps}
+                label="Gift"
+                showChildren={true}
+                value="married"
+                dark={true}
+            >
+                Jeg er gift.
+            </RadioBlock>
+            <RadioBlock
+                {...inputProps}
+                label="Ugift"
+                value="single"
+                dark={true}
+            >
+                Jeg er ugift.
+            </RadioBlock>
+        </React.Fragment>
+    )}
+</RadioButtonInputGroup>;
+```
